@@ -1,0 +1,19 @@
+{
+  "name": "ssr-demo",
+  "version": "1.0.0",
+  "description": "Mono Repo NPM project for SSR Demo",
+  "main": "index.js",
+  "scripts": {
+    "instal-client": "cd client && npm install",
+    "instal-server": "cd server && npm install",
+    "setup": "npm install && npm run instal-client && npm run instal-server",
+    "start-client": "cd client && npm run start",
+    "start-server": "cd server && npm run start",
+    "start": "concurrently \"npm run start-client\" \"npm run start-server\""
+  },
+  "author": "Ethan Arrowood",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
