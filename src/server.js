@@ -1,7 +1,6 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import App from './client/App'
-import Html from './client/Html'
 import Fastify from 'fastify'
 
 const fastify = Fastify({
@@ -15,12 +14,17 @@ fastify.get('/', async (request, reply) => {
   reply
     .code(200)
     .header('Content-Type', 'text/html')
-    .send(
-      Html({
-        body, 
-        title
-      })
-    )
+    .send(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>${title}</title>
+        </head>
+        <body style="margin:0">
+          <div id="app">${body}</div>
+        </body>
+      </html>
+    `)
 })
 
 const start = async () => {
