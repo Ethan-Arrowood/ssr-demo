@@ -4,9 +4,9 @@
   "description": "Mono Repo NPM project for SSR Demo",
   "main": "index.js",
   "scripts": {
-    "start": "next start",
+    "start": "NODE_ENV=production node server2.js",
     "build": "next build",
-    "dev": "node server.js"
+    "dev": "NODE_ENV=development node server2.js"
   },
   "author": "Ethan Arrowood",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
-  "devDependencies": {
-    "webpack": "^3.6.0"
+  "config": {
+    "package-lock": "false"
   }
 }
